@@ -1,16 +1,10 @@
 <?php 	
-include("cabecalho.php");
-include("conecta.php"); 
-include("banco-produto.php"); ?>
+require_once("cabecalho.php");
+require_once("banco-produto.php");
+require_once("logica-usuario.php");
 
-<?php 
-		if(array_key_exists("removido", $_GET) && $_GET["removido"]==true) { 
+verificaUsuario();
 ?>
-		<p class="alert-success">Produto Removido! </p>
-<?php	
-	}
-?>
-
 
 <table class="table table-striped table-bordered">
 		<?php
@@ -20,8 +14,15 @@ include("banco-produto.php"); ?>
 		<tr>
 			<td><?= $produto['nome']?></td>
 			<td><?= $produto['preco']?></td>
+			<td><?= substr($produto['descricao'], 0, 15) ?></td>
+			<td><a class="btn btn-primary" href="produto-altera-formulario.php?id=<?=$produto['id']?>
+			">Alterar</a></td>
 			<td>
-				<a href="remove-produto.php?id=<?=$produto['id']?>" class="text-danger">Remover</a>
+			
+			<form action="remove-produto.php" method="post">
+				<input type="hidden" name="id" value="<?=$produto['id']?>">
+				<button class="btn btn-danger"> Remover </button>
+			</form>
 			</td>
 		</tr>
 
