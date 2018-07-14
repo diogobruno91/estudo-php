@@ -9,6 +9,15 @@
 	<meta charset="utf-8">
 	<link href="css/bootstrap.css" rel="stylesheet">
 	<link href="css/loja.css" rel="stylesheet">
+	<style>
+	.col-md-offset-4{
+	 	padding-top: 100px;
+	}
+	.login{
+		background: black;
+	}
+	
+</style>
 </head>
 <body>
 
